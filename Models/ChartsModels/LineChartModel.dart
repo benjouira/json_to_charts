@@ -3,33 +3,34 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 
-class LineChartDataa {
-
+class LineChartData {
+  String xColumnName;
+  String yColumnName;
   dynamic x;
   num y;
-  LineChartDataa({
+  LineChartData({
     required this.x,
     required this.y,
+    required this.xColumnName,
+    required this.yColumnName,
   });
 
+  factory LineChartData.fromMap(Map<String, dynamic> json) => LineChartData(
+    // y: json["id"],
+    // x: json["username"],
+    x: json[xColumnName)],
+    y: json[yColumnName],
 
-  List<LineChartDataa> dataFromJson(String str) =>
-      List<LineChartDataa>.from(json.decode(str).map((x) => LineChartDataa.fromMap(x)));
-
-
-  factory LineChartDataa.fromMap(Map<String, dynamic> json) => LineChartDataa(
-    y: json["id"],
-    x: json["username"],
   );
 
 
-  Future<List<LineChartDataa>> fetchData() async {
+  Future<List<LineChartData>> fetchData() async {
     final response = await http.get(Uri.parse('https://jsonplaceholder.typicode.com/users'));
 
     if (response.statusCode == 200) {
-      final parsed = json.decode(response.body).cast<Map<String, dynamic>>();
+      final parsed = json.decode(response.body);
 
-      return parsed.map<LineChartDataa>((json) => LineChartDataa.fromMap(json)).toList();
+      return parsed.map<LineChartData>((json) => LineChartData.fromMap(json)).toList();
     } else {
       throw Exception('Failed to load ');
     }
