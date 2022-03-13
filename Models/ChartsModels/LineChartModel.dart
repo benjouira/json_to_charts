@@ -4,22 +4,22 @@ import 'package:http/http.dart' as http;
 
 
 class LineChartData {
-  String xColumnName;
-  String yColumnName;
+  // String xColumnName;
+  // String yColumnName;
   dynamic x;
   num y;
   LineChartData({
     required this.x,
     required this.y,
-    required this.xColumnName,
-    required this.yColumnName,
+    // required this.xColumnName,
+    // required this.yColumnName,
   });
-
+   String val = "id";
   factory LineChartData.fromMap(Map<String, dynamic> json) => LineChartData(
     // y: json["id"],
-    // x: json["username"],
-    x: json[xColumnName)],
-    y: json[yColumnName],
+    x: json["username"],
+    y: json[json.keys.elementAt(0)],
+    // y: json[yColumnName],
 
   );
 
