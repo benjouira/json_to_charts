@@ -1,0 +1,6 @@
+A WIDGET THAT ALLOW USER RESIZE THE WIDGET WITH DRAG
+https://freefluttersource.com/a-widget-that-allow-user-resize-the-widget-with-drag/
+
+How to add Widget dynamically on button click flutter?
+https://rrtutors.com/tutorials/How-to-add-Widget-dynamically-on-button-click-flutter
+
